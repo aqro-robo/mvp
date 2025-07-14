@@ -1,5 +1,13 @@
 from pydantic import BaseModel, EmailStr
 
+
+
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
+
+
+
 class UserCreate(BaseModel):
     email: EmailStr
     password: str
@@ -10,3 +18,6 @@ class UserCreate(BaseModel):
     interests: str | None = None
     skills: str | None = None
     relationships: str | None = None
+    health: str | None = None
+    memory: str | None = None
+    profile_state: str | None = None

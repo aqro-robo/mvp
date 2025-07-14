@@ -1,8 +1,7 @@
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    DATABASE_URL: str = "postgresql://aqro_user:yourpassword@localhost/aqro_db"
-
+    DATABASE_URL: str
     class Config:
         env_file = ".env"
 

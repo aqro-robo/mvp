@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
-from app.core.config import settings
+from app.core.config import settings  # مهم!
 
 SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL
 
@@ -15,3 +15,7 @@ def get_db():
         yield db
     finally:
         db.close()
+
+def create_tables():
+    from app.models.user import User
+    Base.metadata.create_all(bind=engine)

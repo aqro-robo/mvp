@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import Loading from './Loading'
 import Home from './Home'
-import Auth from './Auth'
+import AuthPage from './AuthPage'
+
 
 export default function App() {
   const [loading, setLoading] = useState(true)
@@ -14,7 +15,7 @@ export default function App() {
       const token = localStorage.getItem('token')
       setLoggedIn(!!token)
       setLoading(false)
-      navigate(token ? "/home" : "/auth")
+      navigate(token ? "/home" : "/AuthPage")
     }, 3000)
   }, [])
 
@@ -22,7 +23,7 @@ export default function App() {
 
   return (
     <Routes>
-      <Route path="/auth" element={<Auth />} />
+      <Route path="/AuthPage" element={<AuthPage />} />
       <Route path="/home" element={<Home />} />
     </Routes>
   )
